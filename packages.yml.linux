@@ -25,8 +25,8 @@
 - package: pyzmq
   recipe: python_bash_script
   deps: [python, cython]
-  key: tar.gz:rzx34kmzebcfmilkfwtcikjhoel62f3b
-  url: https://pypi.python.org/packages/source/p/pyzmq/pyzmq-13.1.0.tar.gz
+  key: tar.gz:3ltuep2ku7et7ddx3lorly2m4zlwcing
+  url: https://github.com/downloads/zeromq/pyzmq/pyzmq-2.2.0.1.tar.gz
 
 - package: pygments
   recipe: distutils
@@ -45,8 +45,8 @@
   deps: [python]
 
 - package: ipython
-  url: https://pypi.python.org/packages/source/i/ipython/ipython-1.0.0.tar.gz
-  key: tar.gz:budveg2hqtq3d5twwszsyh3qribgz44y
+  url: https://github.com/downloads/ipython/ipython/ipython-0.13.1.tar.gz
+  key: tar.gz:ho7rbfoe7up36cqiohm6ezlruhhdyqit
   deps: [python, pyzmq, python-readline, tornado]
   recipe: distutils
 
@@ -71,18 +71,18 @@
 - package: numpy
   url: http://downloads.sourceforge.net/project/numpy/NumPy/1.7.1/numpy-1.7.1.tar.gz
   key: tar.gz:kusqdgrqqxb5qyhgz7smbiypwzovm5rg
-  deps: [python, lapack]
+  deps: [python,lapack]
   recipe: python_bash_script
 
 - package: petsc
-  url: http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.3-p6.tar.gz
-  key: tar.gz:bhqdyhmhdjcoimrnmgyapo7p2cr6btvf
+  url: https://bitbucket.org/petsc/petsc.git
+  key: git:e53ed6aa8368a9c1cf5e19ad082d3ac92ae326b5
   deps: [mpi, python, lapack]
 
 - package: petsc4py
-  url: https://petsc4py.googlecode.com/files/petsc4py-3.3.1.tar.gz
-  key: tar.gz:347my4i3ng7uf5mygwdhylesjrzjqjun
-  deps: [python, numpy, petsc]
+  url: git@github.com:erdc-cm/petsc4py.git
+  key: git:e29612c871aa29c8193c7559bbe425f4ce920bbc
+  deps: [python, numpy, petsc,cython]
   recipe: bash_script
 
 - package: sympy
@@ -108,14 +108,14 @@
   recipe: bash_script
 
 - package: png
-  url: http://downloads.sourceforge.net/project/libpng/libpng16/1.6.2/libpng-1.6.2.tar.gz
-  key: tar.gz:kfv6l2gevp6wrdtmopau65fveo466456
+  url: http://prdownloads.sourceforge.net/libpng/libpng-1.6.3.tar.gz
+  key: tar.gz:sb63me5hubulvk2zj53bug3mnm72dgbj
   deps: [zlib]
   recipe: bash_script
 
 - package: launcher
-  url: git://github.com/hashdist/hdist-launcher.git
-  key: git:941878d2387709a20d164b014d9155552448ce2b
+  url: git@github.com:hashdist/hdist-launcher.git
+  key: git:1ae18686890423e8e9948f0706103d4eac151296
   recipe: pure_make
   profile_install: false
   deps: []
@@ -134,9 +134,10 @@
 
 - package: mpich
   provides: mpi
-  url: http://www.mpich.org/static/tarballs/3.0.3/mpich-3.0.3.tar.gz
-  key: tar.gz:jj5yo7oe3e45wwngkuqqn35bud5kdfkr
+  url: http://www.mpich.org/static/tarballs/3.0.4/mpich-3.0.4.tar.gz
+  key: tar.gz:z5ryzblgamak6sfw653ol3gtlnjxrvmq
   deps: []
+  recipe: bash_script
 
 - package: sphinx
   url: https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.2b1.tar.gz
@@ -170,15 +171,15 @@
   recipe: bash_script
 
 - package: daetk
-  url: git://github.com/erdc-cm/daetk.git
+  url: git@github.com:erdc-cm/daetk.git
   key: git:001688ce3c4c59051e4d0d80a173d4435d3e0beb
   deps: [petsc]
   recipe: bash_script
 
 - package: superlu
-  url: git://github.com/erdc-cm/superlu
+  url: git@github.com:erdc-cm/superlu
   key: git:55f7d100d8a5ffa2222534126c2b52986d4ff5bb
-  deps: []
+  deps: [lapack]
   recipe: bash_script
 
 - package: tetgen
@@ -199,15 +200,15 @@
   recipe: configure_make
 
 - package: triangle
-  url: http://www.netlib.org/voronoi/triangle.zip
-  key: zip:c5tde6w5aocjl6ruthu3ptdeef4sff2q
+  url: git@github.com:erdc-cm/triangle.git
+  key: git:7ecebd8389cf6bab52c0855a68efab98d5cf2383
   deps: []
   recipe: bash_script
 
 - package: scipy
   url: http://downloads.sourceforge.net/project/scipy/scipy/0.12.0/scipy-0.12.0.tar.gz
   key: tar.gz:xft6qaw27yw3aq6pxxyaipqtcl445hat
-  deps: [python, numpy, lapack]
+  deps: [python,lapack,numpy]
   recipe: python_bash_script
 
 - package: 2decomp_fft
@@ -251,35 +252,35 @@
   deps: [autoconf]
 
 - package: mayavi
-  url: https://github.com/enthought/mayavi.git
+  url: git@github.com:enthought/mayavi.git
   key: git:0dedbd920f1b242ca7ecfaa4474bae5cfc79af69
   deps: [distribute, numpy, vtk, traitsui, apptools]
   unpack_egg: true
   recipe: distutils
 
 - package: traits
-  url: https://github.com/enthought/traits.git
+  url: git@github.com:enthought/traits.git
   key: git:da1d69129e95ed9117906b246c54779b1df5d8f3
   deps: [numpy, distribute]
   unpack_egg: true
   recipe: distutils
 
 - package: traitsui
-  url: https://github.com/enthought/traitsui.git
+  url: git@github.com:enthought/traitsui.git
   key: git:2e3840301e6e2235efa661c61b26154a61cf70ba
   deps: [distribute, pyface]
   unpack_egg: true
   recipe: distutils
 
 - package: pyface
-  url: https://github.com/enthought/pyface.git
+  url: git@github.com:enthought/pyface.git
   key: git:a104f36cae458093840b179dc8c94e051efe8a18
   deps: [distribute, traits]
   unpack_egg: true
   recipe: distutils
 
 - package: apptools
-  url: https://github.com/enthought/apptools.git
+  url: git@github.com:enthought/apptools.git
   key: git:ef5408f787a8cbda5442d960b7decfdfad5efca1
   deps: [distribute, configobj, traitsui]
   unpack_egg: true
@@ -292,7 +293,7 @@
   recipe: distutils
 
 - package: patchelf
-  url: https://github.com/NixOS/patchelf
+  url: git@github.com:NixOS/patchelf
   key: git:eea5b990b1fa41408f348abb098ca5f4d3c4382c
   deps: [libtool, m4, autoconf, automake, pkgconf]
   recipe: bash_script
@@ -333,19 +334,19 @@
   deps: [cmake]
 
 - package: ncurses
-  url: http://ftp.gnu.org/pub/gnu/ncurses/ncurses-5.9.tar.gz
-  key: tar.gz:sbdctd5uiazezhkbgxwou6dz77wykrw5
   deps: []
-  recipe: bash_script
+  prefix: /usr
+  ld_library_path:  ['/usr/lib64',]
+  recipe: hardcode
 
 - package: readline
-  url: ftp://ftp.cwru.edu/pub/bash/readline-6.2.tar.gz
+  url: http://ftp.gnu.org/gnu/readline/readline-6.2.tar.gz
   key: tar.gz:pgtjmbykawgcgpds3vvmnfycdtdevpk6
   deps: [ncurses]
   recipe: bash_script
 
 - package: sqlite
-  url: https://sqlite.org/2013/sqlite-autoconf-3071700.tar.gz
+  url: http://sqlite.org/2013/sqlite-autoconf-3071700.tar.gz
   key: tar.gz:r72g2c5ktzsmbakvituct2mf6elbyclk
   deps: [readline]
   recipe: bash_script
@@ -361,89 +362,3 @@
   key: tar.gz:hvzkfexegk7ltjz7tufm7y5hpsnu27sc
   deps: []
   recipe: configure_make
-
-- package: fabric
-  url: https://pypi.python.org/packages/source/F/Fabric/Fabric-1.6.1.tar.gz
-  key: tar.gz:uh7tlvf7nh54bvckctb4a4nl3atqh2v3
-  deps: [python, distribute, paramiko]
-  recipe: distutils
-
-- package: paramiko
-  url: https://pypi.python.org/packages/source/p/paramiko/paramiko-1.10.1.tar.gz
-  key: tar.gz:l6wa3oz5osml6st6doh2zeqmxclxvehc
-  deps: [python, pycrypto]
-  recipe: distutils
-
-- package: pycrypto
-  url: https://pypi.python.org/packages/source/p/pycrypto/pycrypto-2.6.tar.gz
-  key: tar.gz:okj4tv7iv4xejkbpq3vzyoyfrcapjpgi
-  deps: [python]
-  recipe: distutils
-
-- package: ruby
-  url: ftp://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
-  key: tar.gz:hzyqikdsy53smqeumdugi6rpgbaihik2
-  deps: []
-  recipe: configure_make
-
-- package: rubygems
-  url: http://production.cf.rubygems.org/rubygems/rubygems-2.0.3.tgz
-  key: tar.gz:7sxvlbsaga6sf3se7jwzm2z3bxjehrfv
-  deps: [ruby]
-  recipe: bash_script
-
-- package: jekyll
-  url: https://github.com/mojombo/jekyll.git
-  key: git:700d840a06649309e15bd1fa946fb14925eb380d
-  deps: [ruby, rubygems]
-  recipe: bash_script
-
-- package: pandas
-  url: https://pypi.python.org/packages/source/p/pandas/pandas-0.11.0.tar.gz
-  key: tar.gz:jv2njvaijfgmy2ipnzq5chfsm25vlmkc
-  deps: [numpy, python-dateutil, pytz]
-  unpack_egg: true
-  recipe: distutils
-
-- package: python-dateutil
-  url: http://labix.org/download/python-dateutil/python-dateutil-1.5.tar.gz
-  key: tar.gz:ycfmu7mf7d4o5vq6qozueo4csjrmlfvj
-  deps: [python, distribute]
-  unpack_egg: true
-  recipe: distutils
-
-- package: pytz
-  url: https://pypi.python.org/packages/source/p/pytz/pytz-2013b.tar.bz2
-  key: tar.bz2:mxvuttafw6ix7xogdyp6nwfekewcsxfv
-  deps: [python]
-  recipe: distutils
-
-- package: dstat
-  url: http://dag.wieers.com/home-made/dstat/dstat-0.7.2.tar.bz2
-  key: tar.bz2:gsuynwoxyaul3holnmxpdr2a64ra3zoj
-  deps: [python]
-  recipe: bash_script
-
-- package: lxml
-  url: http://lxml.de/files/lxml-3.2.0.tgz
-  key: tar.gz:5kwddlcfyntfvlmtca2sszyyiyaoqif4
-  deps: [python]
-  recipe: bash_script
-
-- package: python-netcdf4
-  url: http://netcdf4-python.googlecode.com/files/netCDF4-1.0.4.tar.gz
-  key: tar.gz:th26v25of6xje5m5co3zbxpeejvsxded
-  deps: [netcdf4, hdf5, python, numpy]
-  recipe: bash_script
-
-- package: netcdf4
-  url: ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.0.tar.gz
-  key: tar.gz:fakgkhcnwra2sw5y3ukephgap4czr57d
-  deps: [hdf5]
-  recipe: bash_script
-
-- package: gmp
-  url: ftp://ftp.gmplib.org/pub/gmp/gmp-5.1.2.tar.bz2
-  key: tar.bz2:ecm552te547frlblilvkuaugymrrimfi
-  deps: []
-  recipe: bash_script
